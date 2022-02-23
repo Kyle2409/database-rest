@@ -5,9 +5,9 @@ const db =require("./app/models");
 db.sequelize.sync();
 
 var corsOptions = {
-  origin: "http://localhost:8001"
+  origin: "http://localhost:9001"
 };
-app.use(cors(corsOptions));
+app.use(cors());
 // parse requests of content-type - application/json
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 require("./app/routes/tutorial.routes")(app);
 // set port, listen for requests
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 9001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
